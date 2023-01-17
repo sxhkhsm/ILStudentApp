@@ -8,4 +8,6 @@
     <string name="correct_answer">Correct Answer</string>
     <string name="weight_default_value_1">Weight (Default Value: 1)</string>
     <string name="item">Item</string>
+    <string name="topic_name">Topic Name</string>
+    <string name="unit_number">Unit Number</string>
 </resources>

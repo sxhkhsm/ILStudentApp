@@ -2,14 +2,17 @@ package com.example.intellilearnteacherapp
 
 import android.app.Activity
 import android.content.Intent
-import android.media.AudioManager
-import android.media.ToneGenerator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_new_mcq.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import android.util.Log
 
 class AddNewMcqActivity : AppCompatActivity() {
 
@@ -26,7 +29,7 @@ class AddNewMcqActivity : AppCompatActivity() {
 
     }
 
-    private val mcq = McqItem(-1, "", "", "", "", "", "", -1)
+    private val mcq = McqItem(-1, "", "", "", "", "", "", -1, -1, "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -99,6 +102,20 @@ class AddNewMcqActivity : AppCompatActivity() {
 
                 }
 
+                if(etUnitNumber.text.isNullOrEmpty()){
+
+                    Toast.makeText(this, "Unit Number field is missing!", Toast.LENGTH_LONG).show()
+                    return true
+
+                }
+
+                if(etTopic.text.isNullOrEmpty()){
+
+                    Toast.makeText(this, "Topic field is missing!", Toast.LENGTH_LONG).show()
+                    return true
+
+                }
+
                 mcq.question = etQuestion.text.toString()
                 mcq.option_a = etOptionA.text.toString()
                 mcq.option_b = etOptionB.text.toString()
@@ -106,17 +123,55 @@ class AddNewMcqActivity : AppCompatActivity() {
                 mcq.option_d = etOptionD.text.toString()
                 mcq.correct_option = etCorrectOption.text.toString()
                 mcq.weight = (etWeightage.text.toString()).toInt()
+                mcq.unit_number = (etUnitNumber.text.toString()).toInt()
+                mcq.topic = etTopic.text.toString()
+
+                addMcqItemToServer()
 
                 val data = Intent()
-
                 data.putExtra(EXTRA_MCQ, mcq)
                 setResult(Activity.RESULT_OK, data)
                 finish()
+
 
             }
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+//from video
+
+    private fun addMcqItemToServer() {
+
+        progressBar.visibility = View.VISIBLE
+
+        MyApp.getInstance().getApiServices().addMCQ(mcq).enqueue(object : Callback<McqItem>{
+
+
+            override fun onResponse(call: Call<McqItem>, response: Response<McqItem>) {
+
+                progressBar.visibility = View.GONE
+
+                val data = Intent()
+                data.putExtra(EXTRA_MCQ, mcq)
+                setResult(Activity.RESULT_OK, data)
+                finish()
+
+            }
+
+            override fun onFailure(call: Call<McqItem>, t: Throwable) {
+
+                progressBar.visibility = View.GONE
+                Toast.makeText(this@AddNewMcqActivity, "Failed to POST!", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this@AddNewMcqActivity, "response" + t.getStackTrace().toString(), Toast.LENGTH_LONG).show();
+                Log.d("TAG","response: " + t.stackTrace.toString())
+                Log.d("TAG 2","Message: " + t.message.toString())
+
+            }
+
+        })
+
     }
 
 }

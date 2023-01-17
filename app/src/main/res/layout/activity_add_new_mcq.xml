@@ -8,6 +8,14 @@
     tools:context=".AddNewMcqActivity">
 
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/etQuestion"
         android:layout_width="match_parent"
@@ -81,5 +89,25 @@
         android:hint="@string/weight_default_value_1"
         android:padding="8dp"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etUnitNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/unit_number"
+        android:padding="8dp"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/topic_name"
+        android:padding="8dp"
+        android:inputType="textPersonName" />
 
 </LinearLayout>
