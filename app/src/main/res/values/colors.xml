@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="question_text">#1A1A1A</color>
+    <color name="weight_text">#666666</color>
+    <color name="option_text">#333333</color>
+    <color name="delete_button">#7280CD</color>
+    <color name="card_background_start">#A1F359</color>
+    <color name="card_background_end">#BDC28D</color>
+    <color name="colorPrimary">#21a7ed</color>
+    <color name="colorPrimaryDark">#0a5b85</color>
+    <color name="colorPrimaryBackground">#0886c7</color>
+    <color name="colorAccent">#375290</color>
+    <color name="colorFormBackground">#e4e4e4</color>
+    <color name="button_background_color">#3F51B5</color>
 </resources>

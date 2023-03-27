@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity : AppCompatActivity(), AdapterMcqItem.OnDeleteMcqClickListener {
+public class MainActivity : AppCompatActivity(), AdapterMcqItem.OnDeleteMcqClickListener {
 
     private val mcqItemAdapter = AdapterMcqItem()
 
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), AdapterMcqItem.OnDeleteMcqClickListene
         recyclerView.adapter = mcqItemAdapter
         mcqItemAdapter.onDeleteMcqClickListener = this@MainActivity
 
-        faAddNewMcq.setOnClickListener(){
+        faAddNewMcq.setOnClickListener {
             //Toast.makeText(this, "Clicked", Toast.LENGTH_LONG)
             AddNewMcqActivity.startActivity(this)
 

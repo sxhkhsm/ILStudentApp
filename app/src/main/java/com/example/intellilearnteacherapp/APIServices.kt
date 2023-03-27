@@ -1,5 +1,6 @@
 package com.example.intellilearnteacherapp
 
+import com.example.intellilearnteacherapp.models.LoginResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,6 +11,16 @@ interface APIServices {
 
     @GET("addMcq")
     fun getAllMcqItems() : Call<List<McqItem>>
+
+    @FormUrlEncoded
+    @POST("loginTeacher")
+    fun loginTeacher(
+
+        @Field("email") email:String,
+        @Field("password") password:String,
+
+    ) : Call<LoginResponse>
+
 
     @DELETE("addMcq")
     fun deleteMcqItem(@Query("question_ID") id : Int) : Call<DeleteResponse>
