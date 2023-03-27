@@ -17,8 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SelectClassForPerformanceActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
+
             <!-- Copy the intent filter to any activity that you want to make starting activity, and set exportd = true -->
 
             <intent-filter>

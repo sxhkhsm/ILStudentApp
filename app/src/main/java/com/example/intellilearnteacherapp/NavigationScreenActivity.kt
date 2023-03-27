@@ -27,6 +27,12 @@ class NavigationScreenActivity : AppCompatActivity() {
 
         }
 
+        btnShowClassPerformance.setOnClickListener{
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
+        }
 
     }
 
