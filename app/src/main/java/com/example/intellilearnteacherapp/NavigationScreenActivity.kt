@@ -29,7 +29,7 @@ class NavigationScreenActivity : AppCompatActivity() {
 
         btnShowClassPerformance.setOnClickListener{
 
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, SelectClassForPerformanceActivity::class.java)
             startActivity(intent)
 
         }
