@@ -34,6 +34,13 @@ class NavigationScreenActivity : AppCompatActivity() {
 
         }
 
+        btnSamplePlots.setOnClickListener{
+
+            val intent = Intent(this, SampleBarPLot::class.java)
+            startActivity(intent)
+
+        }
+
     }
 
     override fun onStart() {

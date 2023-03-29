@@ -1,9 +1,8 @@
 package com.example.intellilearnteacherapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -31,6 +30,52 @@ class SelectClassForPerformanceActivity : AppCompatActivity() {
                 if (response.isSuccessful && !response.body().isNullOrEmpty()){
 
                     //now extract data
+                    val classesList: List<ClassModel>? = response.body()
+                    val classesDescs: ArrayList<String> = ArrayList()
+
+                    if (classesList != null) {
+                        for (classDesc in classesList) {
+
+                            classesDescs.add("Class ".plus(classDesc.class_level).plus(" Section ").plus(classDesc.section).plus(" ").plus(classDesc.subject))
+
+                        }
+                    }
+
+
+                    for (className in classesDescs) {
+
+                        val button = Button(this@SelectClassForPerformanceActivity).apply {
+                            layoutParams = LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT
+                            ).apply {
+                                setMargins(0, 0, 0, 16)
+                            }
+                            backgroundTintList = ContextCompat.getColorStateList(
+                                this@SelectClassForPerformanceActivity,
+                                R.color.button_background_color
+                            )
+                            text = className
+                            setTextColor(
+                                ContextCompat.getColor(
+                                    this@SelectClassForPerformanceActivity,
+                                    android.R.color.white
+                                )
+                            )
+                            textSize = 18f
+                        }
+
+                        button.setOnClickListener {
+                            // Handle the button click event
+
+                            val intent = Intent(this@SelectClassForPerformanceActivity, selectReportType::class.java)
+                            intent.putExtra("buttonText", button.text)
+                            startActivity(intent)
+
+                        }
+
+                        buttonContainer.addView(button)
+                    }
 
                 }
                 else{
@@ -50,37 +95,6 @@ class SelectClassForPerformanceActivity : AppCompatActivity() {
 
         })
 
-        // Replace this with the actual API response list
 
-        val classesList = listOf("Class 1 Section A", "Class 1 Section B", "Class 2 Section A")
-
-        for (className in classesList) {
-            val button = Button(this).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                ).apply {
-                    setMargins(0, 0, 0, 16)
-                }
-                backgroundTintList = ContextCompat.getColorStateList(
-                    this@SelectClassForPerformanceActivity,
-                    R.color.button_background_color
-                )
-                text = className
-                setTextColor(
-                    ContextCompat.getColor(
-                        this@SelectClassForPerformanceActivity,
-                        android.R.color.white
-                    )
-                )
-                textSize = 18f
-            }
-
-            button.setOnClickListener {
-                // Handle the button click event
-            }
-
-            buttonContainer.addView(button)
-        }
     }
 }

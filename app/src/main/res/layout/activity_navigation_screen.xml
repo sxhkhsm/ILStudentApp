@@ -30,6 +30,16 @@
         android:textSize="18sp" />
 
     <Button
+        android:id="@+id/btnSamplePlots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/button_background_color"
+        android:text="Sample Plots"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,5 +47,4 @@
         android:text="Logout"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
-
 </LinearLayout>
