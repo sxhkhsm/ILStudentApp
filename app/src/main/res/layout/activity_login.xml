@@ -4,46 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryBackground"
+    android:background="@color/teal_700"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/linearLayout"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:text="Login"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorFormBackground" />
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/orange_logo"
+
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/logo"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/colorFormBackground"
         android:orientation="vertical"
         android:padding="10dp">
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
-            android:hint="email"
-            android:inputType="textEmailAddress" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/layoutEmail"
+            android:layout_marginTop = "8dp"
+            android:layout_marginStart = "8dp"
+            android:layout_marginEnd = "8dp"
+            android:layout_marginBottom="8dp"
+            style = "@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:id = "@+id/editTextEmail"
+                android:hint = "Email"
+                android:textColor="@color/colorAccent"
+                android:inputType="textEmailAddress"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
-            android:hint="password"
-            android:inputType="textPassword" />
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/layoutPassword"
+            android:layout_marginTop = "8dp"
+            android:layout_marginStart = "8dp"
+            android:layout_marginEnd = "8dp"
+            style = "@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:id = "@+id/editTextPassword"
+                android:hint = "Password"
+                android:textColor="@color/colorAccent"
+                android:inputType = "textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -62,14 +83,22 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_below="@id/textViewRegister"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:padding="4dp"
         android:text="Login"
         android:textAllCaps="false"
-        android:textColor="@color/colorFormBackground" />
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+
 
 </RelativeLayout>

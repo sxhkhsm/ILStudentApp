@@ -25,6 +25,15 @@ interface APIServices {
         @Query("evaluationType") evaluationType: String,
     ) : Call<List<MarksModel>>
 
+    @POST("questionAnswering")
+    fun askAI(
+        @Query("question") question: String,
+        @Query("class") Class: String?,
+        @Query("subject") subject: String?,
+        @Query("chapter") chapter: String?,
+    ) : Call<String>
+
+
     @FormUrlEncoded
     @POST("loginTeacher")
     fun loginTeacher(

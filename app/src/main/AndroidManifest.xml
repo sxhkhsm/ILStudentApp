@@ -17,6 +17,36 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ViewAttendance"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".OverallAttendance"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MyAttendance"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AskAI"
+            android:exported="false"
+            android:label="@string/title_activity_ask_ai"
+            android:theme="@style/Theme.IntelliLearnTeacherApp.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".selectReportType"
             android:exported="false">
             <meta-data
@@ -62,7 +92,8 @@
         </activity>
         <activity
             android:name=".NavigationScreenActivity"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/MyTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
