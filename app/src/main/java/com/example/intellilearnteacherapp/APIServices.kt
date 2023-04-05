@@ -56,6 +56,10 @@ interface APIServices {
     @DELETE("addMcq")
     fun deleteMcqItem(@Query("question_ID") id : Int) : Call<DeleteResponse>
 
+    @GET("askChatGPT")
+    fun askChatGPT(@Query("question") question : String) : Call<String>
+
+
 }
 
 data class DeleteResponse ( var response : String)
