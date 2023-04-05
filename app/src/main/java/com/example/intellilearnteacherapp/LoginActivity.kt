@@ -8,6 +8,9 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.example.intellilearnteacherapp.models.LoginResponse
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.editTextEmail
+import kotlinx.android.synthetic.main.activity_login.editTextPassword
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +29,13 @@ class LoginActivity : AppCompatActivity() {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.statusBarColor = this.resources.getColor(R.color.teal_700)
+        }
+
+        textViewRegister.setOnClickListener{
+
+            val intent = Intent(this@LoginActivity, SignUp::class.java)
+            startActivity(intent)
+
         }
 
         buttonLogin.setOnClickListener(){

@@ -66,6 +66,12 @@ class NavigationScreenActivity : AppCompatActivity() {
 
         }
 
+        btnAskChatGPT.setOnClickListener{
+
+            val intent = Intent(this, AskChatGPT::class.java)
+            startActivity(intent)
+
+        }
 
     }
 

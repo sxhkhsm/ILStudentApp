@@ -75,10 +75,21 @@
         android:textSize="18sp" />
 
             <Button
-                android:id="@+id/btnMyAttendance"                android:layout_width="match_parent"
+                android:id="@+id/btnMyAttendance"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimaryBackground"
                 android:text="My Attendance"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnAskChatGPT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryBackground"
+                android:text="Ask ChatGPT"
                 android:layout_marginBottom="16dp"
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />

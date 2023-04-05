@@ -43,6 +43,15 @@ interface APIServices {
 
     ) : Call<LoginResponse>
 
+    @FormUrlEncoded
+    @POST("addTeacher")
+    fun registerTeacher(
+
+        @Field("email") email:String,
+        @Field("password") password:String,
+        @Field("name") name:String,
+
+        ) : Call<LoginResponse>
 
     @DELETE("addMcq")
     fun deleteMcqItem(@Query("question_ID") id : Int) : Call<DeleteResponse>
