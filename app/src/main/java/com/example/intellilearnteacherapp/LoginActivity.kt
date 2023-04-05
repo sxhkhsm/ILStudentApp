@@ -1,11 +1,16 @@
 package com.example.intellilearnteacherapp
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import com.example.intellilearnteacherapp.models.LoginResponse
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.editTextEmail
+import kotlinx.android.synthetic.main.activity_login.editTextPassword
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,6 +20,23 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        supportActionBar?.hide()
+
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(R.color.teal_700)
+        }
+
+        textViewRegister.setOnClickListener{
+
+            val intent = Intent(this@LoginActivity, SignUp::class.java)
+            startActivity(intent)
+
+        }
 
         buttonLogin.setOnClickListener(){
 
