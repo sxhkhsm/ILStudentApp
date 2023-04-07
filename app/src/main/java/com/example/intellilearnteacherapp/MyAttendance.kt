@@ -45,6 +45,10 @@ class MyAttendance : AppCompatActivity() {
 
                         }
                     }
+
+                    //overall attendance
+                    classes.add("Overall")
+
                     // Update spinner on the main thread
                     //withContext(Dispatchers.Main) {
                     updateSpinner(classes)

@@ -55,7 +55,6 @@ class SampleBarPLot : AppCompatActivity() {
 
 
                     val list: ArrayList<BarEntry> = ArrayList()
-                    var ind = 0f
                     if (marksList != null) {
                         for (element in marksList) {
 
