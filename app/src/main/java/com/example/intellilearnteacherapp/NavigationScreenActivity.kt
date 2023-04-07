@@ -73,6 +73,13 @@ class NavigationScreenActivity : AppCompatActivity() {
 
         }
 
+        btnMySchedule.setOnClickListener{
+
+            val intent = Intent(this, ViewSchedule::class.java)
+            startActivity(intent)
+
+        }
+
     }
 
     override fun onStart() {

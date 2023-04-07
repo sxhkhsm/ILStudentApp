@@ -1,8 +1,6 @@
 package com.example.intellilearnteacherapp
 
-import com.example.intellilearnteacherapp.models.ClassModel
-import com.example.intellilearnteacherapp.models.LoginResponse
-import com.example.intellilearnteacherapp.models.MarksModel
+import com.example.intellilearnteacherapp.models.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -58,6 +56,16 @@ interface APIServices {
 
     @GET("askChatGPT")
     fun askChatGPT(@Query("question") question : String) : Call<String>
+
+    //get teacher attendance for displaying
+    @GET("teacherAttendance")
+    fun getTeacherAttendance(@Query("teacher_ID") teacher_ID : Int
+                             ,@Query("attendance_type") attendance_type : String
+    ) : Call<List<TeacherAttendanceItem>>
+
+    //get teacher schedule
+    @GET("addTeacherSchedule")
+    fun getTeacherSchedule(@Query("teacher_ID") teacher_ID : Int) : Call<List<TeacherScheduleItem>>
 
 
 }
